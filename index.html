@@ -61,7 +61,7 @@
 </aside>
 <div class="toast" id="toast" role="status"></div>
 <script>
-const productsData = [
+let productsData = [
  {id:1,cat:"Home",emoji:"🕯️",bg:"#fff0d9",price:8.5,badge:"POPULAR",en:{name:"Cozy Glow Candle",desc:"A warm little touch for your space."},ar:{name:"شمعة الأجواء الدافئة",desc:"لمسة دافئة وجميلة لمساحتك."}},
  {id:2,cat:"Accessories",emoji:"👜",bg:"#fce3ed",price:14,badge:"NEW",en:{name:"Everyday Mini Bag",desc:"Your daily essentials, all together."},ar:{name:"حقيبة يومية صغيرة",desc:"اجمعي أغراضك الأساسية بأناقة."}},
  {id:3,cat:"Tech",emoji:"🎧",bg:"#e8e4ff",price:19.5,badge:"",en:{name:"Pocket Sound Buds",desc:"A sample pick for music on the go."},ar:{name:"سماعات الجيب",desc:"خيار تجريبي للاستماع أينما كنت."}},
@@ -71,7 +71,7 @@ const productsData = [
  {id:7,cat:"Tech",emoji:"🔌",bg:"#f1e5ff",price:7,badge:"",en:{name:"Cable Buddy Set",desc:"Keep your everyday cables organized."},ar:{name:"مجموعة تنظيم الكابلات",desc:"رتّب الكابلات اليومية بسهولة."}},
  {id:8,cat:"Gifts",emoji:"🌈",bg:"#ffe3d9",price:6.5,badge:"UNDER $10",en:{name:"Color Pop Notebook",desc:"Bright ideas deserve a bright notebook."},ar:{name:"دفتر الأفكار الملوّن",desc:"أفكار جميلة تستحق دفتراً مميزاً."}}
 ];
-const cats = ["All","Home","Accessories","Tech","Gifts"];
+let cats = ["All","Home","Accessories","Tech","Gifts"];
 const catAr = {"All":"الكل","Home":"المنزل","Accessories":"إكسسوارات","Tech":"تقنية","Gifts":"هدايا"};
 const translations = {
  en:{topbar:"A little something for everyone ✦ Cash on delivery in Lebanon",eyebrow:"YOUR NEXT LITTLE OBSESSION",heroTitle:"Good finds.<br>Happy days.",heroText:"Discover colorful everyday favorites, thoughtful gifts and clever little things — all in one place.",shopNow:"Explore the collection →",productsTitle:"Find your favorites",productsSubtitle:"A little mix of things worth discovering.",search:"Search products...",notice:"Demo store: sample products and prices are placeholders. Confirm supplier availability, final price and delivery fee before accepting a real order.",cart:"Cart",cartTitle:"Your cart",total:"Subtotal",checkoutTitle:"Delivery details",checkoutInfo:"This preview does not send orders or save customer information. We'll connect a secure order system in the next step.",name:"Full name",phone:"Phone / WhatsApp",area:"Delivery area",address:"Detailed address",placeOrder:"Preview checkout",privacy:"Don't enter real customer data in this demo. Checkout is for layout testing only.",empty:"Your cart is empty. Add something you love!",remove:"Remove",footer:"Everyday finds. Smart choices.",footerDemo:"Preview storefront",floatOne:"✨ New discoveries",floatTwo:"💛 Picked for you",choose:"Choose an area",added:"Added to cart",need:"Please add a product first.",form:"Fill in your name, phone, area and address to preview checkout.",demo:"Preview only — no order was sent or saved.",currency:"USD"},
@@ -123,6 +123,63 @@ $("placeOrder").onclick=()=>{
 };
 $("year").textContent=new Date().getFullYear();
 applyLanguage();
+  
+const SUPABASE_URL = "https://mjsaprouhtfrqandrnck.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_nHciMKhBrdSlVs3Z09CYBQ_VrinSh7";
+
+async function loadSupabaseProducts() {
+  try {
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/products?select=id,name,description,price,category,image_url,available&available=eq.true&order=id.asc`,
+      {
+        headers: {
+          apikey: SUPABASE_PUBLISHABLE_KEY,
+          Authorization: `Bearer ${SUPABASE_PUBLISHABLE_KEY}`
+        }
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const rows = await response.json();
+
+    productsData = rows.map(p => ({
+      id: p.id,
+      cat: p.category || "Other",
+      emoji: "🛍️",
+      bg: "#f5edda",
+      price: Number(p.price),
+      badge: "",
+      en: {
+        name: p.name || "Product",
+        desc: p.description || ""
+      },
+      ar: {
+        name: p.name || "Product",
+        desc: p.description || ""
+      }
+    }));
+
+    cats = ["All", ...new Set(
+      rows.map(p => p.category).filter(Boolean)
+    )];
+
+    selectedCat = "All";
+    cart = {};
+
+    renderCats();
+    renderProducts();
+    renderCart();
+
+  } catch (error) {
+    console.error("Supabase product loading failed:", error);
+  }
+}
+
+loadSupabaseProducts();
+
 </script>
 </body>
 </html>
