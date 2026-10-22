@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#5427c8">
+<title>Mixora — Little finds, big delight</title>
+<style>
+:root{--purple:#5427c8;--pink:#ff5c9a;--yellow:#ffd45c;--ink:#201a33;--muted:#777286;--paper:#fffdf9;--line:#eee9f4;--green:#16845b}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}.topbar{background:var(--ink);color:#fff;text-align:center;padding:9px 14px;font-size:12px;letter-spacing:.04em}.wrap{max-width:1180px;margin:auto;padding:0 22px}.header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 0}.brand{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:900;letter-spacing:-1px}.logo{width:39px;height:39px;border-radius:13px;background:linear-gradient(135deg,var(--pink),var(--yellow));display:grid;place-items:center;color:var(--ink);font-size:22px}.header-actions{display:flex;align-items:center;gap:10px}.pill,.cart-btn{border:1px solid var(--line);border-radius:999px;background:white;padding:10px 14px;color:var(--ink);font-weight:700}.cart-btn{background:var(--purple);color:#fff;border-color:var(--purple)}.hero{background:linear-gradient(120deg,#f0eaff 0%,#ffe8f1 55%,#fff2c9 100%);border-radius:28px;padding:45px 5.5%;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:24px;overflow:hidden}.eyebrow{color:var(--purple);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase}.hero h1{font-size:clamp(36px,5vw,62px);line-height:1.02;letter-spacing:-.055em;margin:12px 0 16px;max-width:620px}.hero p{color:#655b78;max-width:480px;line-height:1.7}.primary{background:var(--purple);color:#fff;border:0;border-radius:999px;padding:13px 20px;font-weight:800;margin-top:10px}.hero-art{min-height:245px;display:grid;place-items:center;position:relative}.orb{width:min(280px,75%);aspect-ratio:1;border-radius:45% 55% 60% 40%;background:linear-gradient(145deg,#ff8db7,#ffd75d);display:grid;place-items:center;font-size:110px;transform:rotate(-8deg);box-shadow:0 25px 60px #a477a533}.float{position:absolute;background:white;border-radius:18px;padding:12px 15px;font-size:13px;font-weight:800;box-shadow:0 12px 30px #34204b14}.float.one{top:14%;right:1%}.float.two{bottom:10%;left:0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:42px 0 18px}.section-head h2{font-size:26px;letter-spacing:-.04em;margin:0}.section-head p{margin:6px 0 0;color:var(--muted);font-size:14px}.search{width:min(270px,48%);border:1px solid var(--line);background:#fff;border-radius:999px;padding:12px 15px;outline-color:var(--purple)}.categories{display:flex;gap:9px;overflow:auto;padding:2px 0 12px}.category{border:1px solid var(--line);background:white;border-radius:999px;padding:10px 15px;white-space:nowrap;color:#625b70;font-weight:700}.category.active{background:var(--ink);color:white;border-color:var(--ink)}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}.product{background:#fff;border:1px solid var(--line);border-radius:20px;padding:11px;transition:transform .18s,box-shadow .18s}.product:hover{transform:translateY(-3px);box-shadow:0 12px 30px #34204b0d}.photo{height:185px;border-radius:14px;display:grid;place-items:center;font-size:65px;position:relative}.photo small{position:absolute;top:10px;left:10px;background:white;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900;color:var(--purple)}.product h3{font-size:15px;margin:13px 3px 5px}.desc{color:var(--muted);font-size:12px;line-height:1.5;min-height:35px;margin:0 3px}.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 2px 2px}.price{font-weight:900;font-size:16px}.add{border:0;background:#f0eaff;color:var(--purple);font-weight:900;border-radius:12px;width:37px;height:37px;font-size:21px}.notice{background:#fff8dd;border:1px solid #f4e6ae;border-radius:15px;padding:13px 15px;margin:22px 0;color:#66551b;font-size:13px;line-height:1.6}.footer{margin-top:55px;background:var(--ink);color:white;padding:30px 0}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer p{color:#c8c1d4;font-size:13px}.empty{grid-column:1/-1;padding:45px;text-align:center;color:var(--muted)}.drawer-backdrop{position:fixed;inset:0;background:#17102070;z-index:9;display:none}.drawer{position:fixed;z-index:10;right:0;top:0;height:100dvh;width:min(430px,100%);background:#fff;padding:23px;display:none;overflow:auto;box-shadow:-15px 0 50px #0001}.drawer.open,.drawer-backdrop.open{display:block}.drawer-head{display:flex;align-items:center;justify-content:space-between}.drawer-head h2{margin:0}.close{border:0;background:#f4f0f8;border-radius:50%;width:37px;height:37px;font-size:20px}.cart-line{display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;border-bottom:1px solid var(--line);padding:14px 0}.mini-photo{width:52px;height:52px;border-radius:12px;display:grid;place-items:center;font-size:26px}.cart-line h4{margin:0 0 4px;font-size:13px}.cart-line p{margin:0;color:var(--muted);font-size:12px}.qty{display:flex;align-items:center;gap:8px;margin-top:7px}.qty button{border:1px solid var(--line);background:white;border-radius:7px;width:25px;height:25px}.total{display:flex;justify-content:space-between;font-weight:900;font-size:18px;padding:18px 0}.checkout{display:grid;gap:11px}.checkout label{font-size:12px;font-weight:800}.checkout input,.checkout select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;margin-top:5px;outline-color:var(--purple)}.checkout .primary{width:100%;margin-top:5px}.smallprint{font-size:11px;color:var(--muted);line-height:1.5}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:white;padding:12px 18px;border-radius:999px;z-index:20;display:none;font-size:13px}.toast.show{display:block}body[dir="rtl"] .float.one{right:auto;left:1%}body[dir="rtl"] .float.two{left:auto;right:0}body[dir="rtl"] .drawer{right:auto;left:0}body[dir="rtl"] .photo small{left:auto;right:10px}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr;padding:32px 7%}.hero-art{min-height:190px}.orb{width:190px;font-size:85px}.float.one{right:8%}.float.two{left:8%}.header{flex-wrap:wrap}.brand{font-size:22px}.section-head{align-items:start;flex-wrap:wrap}.search{width:100%}}
+@media(max-width:430px){.wrap{padding:0 14px}.topbar{font-size:10px}.header{padding:15px 0}.hero{border-radius:20px;padding:27px 20px}.hero h1{font-size:39px}.grid{gap:10px}.product{padding:8px;border-radius:16px}.photo{height:140px;font-size:52px}.product h3{font-size:13px}.desc{font-size:11px}.price{font-size:14px}.add{width:32px;height:32px}.pill,.cart-btn{padding:9px 11px;font-size:12px}.footer-inner{display:block}}
+</style>
+</head>
+<body>
+<div class="topbar" id="topbar">A little something for everyone ✦ Cash on delivery in Lebanon</div>
+<div class="wrap">
+<header class="header">
+  <div class="brand"><span class="logo">✦</span><span>mixora<span style="color:var(--pink)">.</span></span></div>
+  <div class="header-actions">
+    <button class="pill" id="langBtn" aria-label="Switch language">عربي</button>
+    <button class="cart-btn" id="openCart">🛍 <span id="cartLabel">Cart</span> (<span id="cartCount">0</span>)</button>
+  </div>
+</header>
+<section class="hero">
+  <div>
+    <div class="eyebrow" id="eyebrow">YOUR NEXT LITTLE OBSESSION</div>
+    <h1 id="heroTitle">Good finds.<br>Happy days.</h1>
+    <p id="heroText">Discover colorful everyday favorites, thoughtful gifts and clever little things — all in one place.</p>
+    <button class="primary" id="shopNow">Explore the collection <span aria-hidden="true">→</span></button>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="orb">🎁</div><div class="float one" id="floatOne">✨ New discoveries</div><div class="float two" id="floatTwo">💛 Picked for you</div>
+  </div>
+</section>
+<div class="section-head" id="collection">
+  <div><h2 id="productsTitle">Find your favorites</h2><p id="productsSubtitle">A little mix of things worth discovering.</p></div>
+  <input class="search" id="search" type="search" placeholder="Search products..." aria-label="Search products">
+</div>
+<div class="categories" id="categories"></div>
+<div class="grid" id="products"></div>
+<div class="notice" id="notice">Demo store: sample products and prices are placeholders. Confirm supplier availability, final price and delivery fee before accepting a real order.</div>
+</div>
+<footer class="footer"><div class="wrap footer-inner"><div><div class="brand"><span class="logo">✦</span><span>mixora<span style="color:var(--pink)">.</span></span></div><p id="footerText">Little finds, big delight. Made for everyday discovery.</p></div><p>© <span id="year"></span> Mixora · <span id="footerDemo">Preview storefront</span></p></div></footer>
+
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart">
+  <div class="drawer-head"><h2 id="cartTitle">Your cart</h2><button class="close" id="closeCart" aria-label="Close cart">×</button></div>
+  <div id="cartItems"></div>
+  <div class="total"><span id="totalLabel">Subtotal</span><span id="subtotal">$0.00</span></div>
+  <div class="checkout">
+    <h3 id="checkoutTitle">Delivery details</h3>
+    <p class="smallprint" id="checkoutInfo">This preview does not send orders or save customer information. We'll connect a secure order system in the next step.</p>
+    <label><span id="nameLabel">Full name</span><input id="customerName" autocomplete="name" placeholder="Your name"></label>
+    <label><span id="phoneLabel">Phone / WhatsApp</span><input id="customerPhone" autocomplete="tel" placeholder="+961 ..."></label>
+    <label><span id="areaLabel">Delivery area</span><select id="customerArea"><option value="">Choose an area</option><option>Beirut</option><option>Mount Lebanon</option><option>North Lebanon</option><option>South Lebanon</option><option>Bekaa</option><option>Nabatieh</option><option>Akkar</option><option>Baalbek-Hermel</option></select></label>
+    <label><span id="addressLabel">Detailed address</span><input id="customerAddress" autocomplete="street-address" placeholder="Street, building, floor"></label>
+    <button class="primary" id="placeOrder">Preview checkout</button>
+    <p class="smallprint" id="privacyText">Don't enter real customer data in this demo. Checkout is for layout testing only.</p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const productsData = [
+ {id:1,cat:"Home",emoji:"🕯️",bg:"#fff0d9",price:8.5,badge:"POPULAR",en:{name:"Cozy Glow Candle",desc:"A warm little touch for your space."},ar:{name:"شمعة الأجواء الدافئة",desc:"لمسة دافئة وجميلة لمساحتك."}},
+ {id:2,cat:"Accessories",emoji:"👜",bg:"#fce3ed",price:14,badge:"NEW",en:{name:"Everyday Mini Bag",desc:"Your daily essentials, all together."},ar:{name:"حقيبة يومية صغيرة",desc:"اجمعي أغراضك الأساسية بأناقة."}},
+ {id:3,cat:"Tech",emoji:"🎧",bg:"#e8e4ff",price:19.5,badge:"",en:{name:"Pocket Sound Buds",desc:"A sample pick for music on the go."},ar:{name:"سماعات الجيب",desc:"خيار تجريبي للاستماع أينما كنت."}},
+ {id:4,cat:"Gifts",emoji:"🎁",bg:"#fff0b9",price:12,badge:"GIFT IDEA",en:{name:"Happy Little Gift Box",desc:"A cheerful surprise for someone."},ar:{name:"علبة هدايا مبهجة",desc:"مفاجأة لطيفة لشخص مميز."}},
+ {id:5,cat:"Home",emoji:"☕",bg:"#e2f5ec",price:9,badge:"",en:{name:"Morning Mug",desc:"Make your everyday coffee feel special."},ar:{name:"كوب الصباح",desc:"اجعل قهوتك اليومية أكثر تميزاً."}},
+ {id:6,cat:"Accessories",emoji:"🕶️",bg:"#e2f0ff",price:11.5,badge:"TRENDING",en:{name:"Sunny Day Shades",desc:"A fun sample accessory for sunny days."},ar:{name:"نظارات الأيام المشمسة",desc:"إكسسوار تجريبي لأيام الشمس."}},
+ {id:7,cat:"Tech",emoji:"🔌",bg:"#f1e5ff",price:7,badge:"",en:{name:"Cable Buddy Set",desc:"Keep your everyday cables organized."},ar:{name:"مجموعة تنظيم الكابلات",desc:"رتّب الكابلات اليومية بسهولة."}},
+ {id:8,cat:"Gifts",emoji:"🌈",bg:"#ffe3d9",price:6.5,badge:"UNDER $10",en:{name:"Color Pop Notebook",desc:"Bright ideas deserve a bright notebook."},ar:{name:"دفتر الأفكار الملوّن",desc:"أفكار جميلة تستحق دفتراً مميزاً."}}
+];
+const cats = ["All","Home","Accessories","Tech","Gifts"];
+const catAr = {"All":"الكل","Home":"المنزل","Accessories":"إكسسوارات","Tech":"تقنية","Gifts":"هدايا"};
+const translations = {
+ en:{topbar:"A little something for everyone ✦ Cash on delivery in Lebanon",eyebrow:"YOUR NEXT LITTLE OBSESSION",heroTitle:"Good finds.<br>Happy days.",heroText:"Discover colorful everyday favorites, thoughtful gifts and clever little things — all in one place.",shopNow:"Explore the collection →",productsTitle:"Find your favorites",productsSubtitle:"A little mix of things worth discovering.",search:"Search products...",notice:"Demo store: sample products and prices are placeholders. Confirm supplier availability, final price and delivery fee before accepting a real order.",cart:"Cart",cartTitle:"Your cart",total:"Subtotal",checkoutTitle:"Delivery details",checkoutInfo:"This preview does not send orders or save customer information. We'll connect a secure order system in the next step.",name:"Full name",phone:"Phone / WhatsApp",area:"Delivery area",address:"Detailed address",placeOrder:"Preview checkout",privacy:"Don't enter real customer data in this demo. Checkout is for layout testing only.",empty:"Your cart is empty. Add something you love!",remove:"Remove",footer:"Little finds, big delight. Made for everyday discovery.",footerDemo:"Preview storefront",floatOne:"✨ New discoveries",floatTwo:"💛 Picked for you",choose:"Choose an area",added:"Added to cart",need:"Please add a product first.",form:"Fill in your name, phone, area and address to preview checkout.",demo:"Preview only — no order was sent or saved.",currency:"USD"},
+ ar:{topbar:"شيء جميل لكل شخص ✦ الدفع عند الاستلام في لبنان",eyebrow:"اكتشف شيئاً تحبه",heroTitle:"اكتشافات جميلة.<br>أيام أجمل.",heroText:"اكتشف منتجات يومية ملوّنة وهدايا مميزة وأغراضاً عملية — كلها في مكان واحد.",shopNow:"اكتشف المجموعة ←",productsTitle:"اختر ما يعجبك",productsSubtitle:"مجموعة متنوعة من الأشياء التي تستحق الاكتشاف.",search:"ابحث عن المنتجات...",notice:"متجر تجريبي: المنتجات والأسعار المعروضة أمثلة فقط. تأكد من توفر المنتج وسعره النهائي وكلفة التوصيل قبل تأكيد أي طلب حقيقي.",cart:"السلة",cartTitle:"سلة التسوق",total:"المجموع الفرعي",checkoutTitle:"تفاصيل التوصيل",checkoutInfo:"هذه المعاينة لا ترسل الطلبات ولا تحفظ معلومات العملاء. سنربط نظام طلبات آمن في الخطوة التالية.",name:"الاسم الكامل",phone:"الهاتف / واتساب",area:"منطقة التوصيل",address:"العنوان بالتفصيل",placeOrder:"معاينة إتمام الطلب",privacy:"لا تدخل بيانات عملاء حقيقية في هذه المعاينة. صفحة الدفع مخصصة لاختبار التصميم فقط.",empty:"سلة التسوق فارغة. أضف شيئاً يعجبك!",remove:"حذف",footer:"اكتشافات صغيرة، فرحة كبيرة.",footerDemo:"واجهة متجر تجريبية",floatOne:"✨ اكتشافات جديدة",floatTwo:"💛 اخترناها لك",choose:"اختر المنطقة",added:"أُضيف إلى السلة",need:"أضف منتجاً أولاً.",form:"أدخل الاسم والهاتف والمنطقة والعنوان لمعاينة الطلب.",demo:"معاينة فقط — لم يتم إرسال الطلب أو حفظه.",currency:"USD"}
+};
+let lang="en", selectedCat="All", cart={};
+const $=id=>document.getElementById(id);
+const money=n=>"$"+n.toFixed(2);
+function tr(key){return translations[lang][key]||key}
+function productText(p){return p[lang]}
+function renderCats(){
+ $("categories").innerHTML=cats.map(c=>`<button class="category ${selectedCat===c?"active":""}" data-cat="${c}">${lang==="ar"?(catAr[c]||c):c}</button>`).join("");
+ document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{selectedCat=b.dataset.cat;renderCats();renderProducts()});
+}
+function renderProducts(){
+ const q=$("search").value.trim().toLowerCase();
+ const list=productsData.filter(p=>(selectedCat==="All"||p.cat===selectedCat)&&(`${p.en.name} ${p.ar.name} ${p.en.desc} ${p.ar.desc} ${p.cat}`.toLowerCase().includes(q)));
+ $("products").innerHTML=list.length?list.map(p=>`<article class="product"><div class="photo" style="background:${p.bg}"><span>${p.emoji}</span>${p.badge?`<small>${p.badge}</small>`:""}</div><h3>${productText(p).name}</h3><p class="desc">${productText(p).desc}</p><div class="product-bottom"><span class="price">${money(p.price)}</span><button class="add" aria-label="Add ${productText(p).name}" data-add="${p.id}">+</button></div></article>`).join(""):`<div class="empty">No products found.</div>`;
+ document.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{const id=+b.dataset.add;cart[id]=(cart[id]||0)+1;renderCart();toast(tr("added"))});
+}
+function renderCart(){
+ const entries=Object.entries(cart).filter(([id,qty])=>qty>0);
+ $("cartCount").textContent=entries.reduce((s,[id,q])=>s+q,0);
+ $("cartItems").innerHTML=entries.length?entries.map(([id,qty])=>{const p=productsData.find(x=>x.id===+id);return `<div class="cart-line"><div class="mini-photo" style="background:${p.bg}">${p.emoji}</div><div><h4>${productText(p).name}</h4><p>${money(p.price)} × ${qty}</p><div class="qty"><button data-change="${id}" data-delta="-1">−</button><span>${qty}</span><button data-change="${id}" data-delta="1">+</button><button data-remove="${id}" style="width:auto;padding:0 7px;font-size:11px">${tr("remove")}</button></div></div><strong>${money(p.price*qty)}</strong></div>`}).join(""):`<div class="empty">${tr("empty")}</div>`;
+ const sum=entries.reduce((s,[id,q])=>s+productsData.find(p=>p.id===+id).price*q,0);$("subtotal").textContent=money(sum);
+ document.querySelectorAll("[data-change]").forEach(b=>b.onclick=()=>{const id=b.dataset.change;cart[id]=(cart[id]||0)+(+b.dataset.delta);if(cart[id]<=0)delete cart[id];renderCart()});
+ document.querySelectorAll("[data-remove]").forEach(b=>b.onclick=()=>{delete cart[b.dataset.remove];renderCart()});
+}
+function applyLanguage(){
+ document.documentElement.lang=lang;document.body.dir=lang==="ar"?"rtl":"ltr";
+ const t=translations[lang];
+ ["topbar","eyebrow","heroText","productsTitle","productsSubtitle","notice","cartTitle","totalLabel","checkoutTitle","checkoutInfo","nameLabel","phoneLabel","areaLabel","addressLabel","placeOrder","privacyText","footerText","footerDemo","floatOne","floatTwo"].forEach(id=>{const map={totalLabel:"total",nameLabel:"name",phoneLabel:"phone",areaLabel:"area",addressLabel:"address",placeOrder:"placeOrder",privacyText:"privacy",footerText:"footer",footerDemo:"footerDemo",floatOne:"floatOne",floatTwo:"floatTwo"};const key=map[id]||id;if($(id))$(id).innerHTML=t[key]||$(id).innerHTML});
+ $("heroTitle").innerHTML=t.heroTitle;$("shopNow").textContent=t.shopNow;$("cartLabel").textContent=t.cart;$("search").placeholder=t.search;$("search").dir=lang==="ar"?"rtl":"ltr";$("langBtn").textContent=lang==="en"?"عربي":"English";
+ $("customerName").placeholder=lang==="en"?"Your name":"اسمك";$("customerPhone").placeholder="+961 ...";$("customerAddress").placeholder=lang==="en"?"Street, building, floor":"الشارع، المبنى، الطابق";
+ const area=$("customerArea");area.options[0].textContent=t.choose;
+ renderCats();renderProducts();renderCart();
+}
+function openCart(){ $("drawer").classList.add("open");$("backdrop").classList.add("open");}
+function closeCart(){ $("drawer").classList.remove("open");$("backdrop").classList.remove("open");}
+function toast(s){$("toast").textContent=s;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2300)}
+$("langBtn").onclick=()=>{lang=lang==="en"?"ar":"en";applyLanguage()};
+$("openCart").onclick=openCart;$("closeCart").onclick=closeCart;$("backdrop").onclick=closeCart;
+$("search").addEventListener("input",renderProducts);
+$("shopNow").onclick=()=>$("collection").scrollIntoView({behavior:"smooth"});
+$("placeOrder").onclick=()=>{
+ if(!Object.keys(cart).length){toast(tr("need"));return}
+ if(!$("customerName").value.trim()||!$("customerPhone").value.trim()||!$("customerArea").value||!$("customerAddress").value.trim()){toast(tr("form"));return}
+ toast(tr("demo"));
+};
+$("year").textContent=new Date().getFullYear();
+applyLanguage();
+</script>
+</body>
+</html>
