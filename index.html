@@ -57,13 +57,13 @@
   <div class="total"><span id="totalLabel">Subtotal</span><span id="subtotal">$0.00</span></div>
   <div class="checkout">
     <h3 id="checkoutTitle">Delivery details</h3>
-    <p class="smallprint" id="checkoutInfo">This preview does not send orders or save customer information. We'll connect a secure order system in the next step.</p>
+    <p class="smallprint" id="checkoutInfo">Checkout is currently in preview mode. Your order will not be submitted or saved yet.</p>
     <label><span id="nameLabel">Full name</span><input id="customerName" autocomplete="name" placeholder="Your name"></label>
     <label><span id="phoneLabel">Phone / WhatsApp</span><input id="customerPhone" autocomplete="tel" placeholder="+961 ..."></label>
     <label><span id="areaLabel">Delivery area</span><select id="customerArea"><option value="">Choose an area</option><option>Beirut</option><option>Mount Lebanon</option><option>North Lebanon</option><option>South Lebanon</option><option>Bekaa</option><option>Nabatieh</option><option>Akkar</option><option>Baalbek-Hermel</option></select></label>
     <label><span id="addressLabel">Detailed address</span><input id="customerAddress" autocomplete="street-address" placeholder="Street, building, floor"></label>
     <button class="primary" id="placeOrder">Preview checkout</button>
-    <p class="smallprint" id="privacyText">Don't enter real customer data in this demo. Checkout is for layout testing only.</p>
+    <p class="smallprint" id="privacyText">Please use test details only. This button does not place a real order or store your information.</p>
   </div>
 </aside>
 <div class="toast" id="toast" role="status"></div>
@@ -81,8 +81,8 @@ let productsData = [
 let cats = ["All","Home","Accessories","Tech","Gifts"];
 const catAr = {"All":"الكل","Home":"المنزل","Accessories":"إكسسوارات","Tech":"تقنية","Gifts":"هدايا"};
 const translations = {
- en:{topbar:"A little something for everyone ✦ Cash on delivery in Lebanon",eyebrow:"YOUR NEXT LITTLE OBSESSION",heroTitle:"Good finds.<br>Happy days.",heroText:"Discover colorful everyday favorites, thoughtful gifts and clever little things — all in one place.",shopNow:"Explore the collection →",productsTitle:"Find your favorites",productsSubtitle:"A little mix of things worth discovering.",search:"Search products...",notice:"Demo store: sample products and prices are placeholders. Confirm supplier availability, final price and delivery fee before accepting a real order.",cart:"Cart",cartTitle:"Your cart",total:"Subtotal",checkoutTitle:"Delivery details",checkoutInfo:"This preview does not send orders or save customer information. We'll connect a secure order system in the next step.",name:"Full name",phone:"Phone / WhatsApp",area:"Delivery area",address:"Detailed address",placeOrder:"Preview checkout",privacy:"Don't enter real customer data in this demo. Checkout is for layout testing only.",empty:"Your cart is empty. Add something you love!",remove:"Remove",footer:"Everyday finds. Smart choices.",footerDemo:"Preview storefront",floatOne:"✨ New discoveries",floatTwo:"💛 Picked for you",choose:"Choose an area",added:"Added to cart",need:"Please add a product first.",form:"Fill in your name, phone, area and address to preview checkout.",demo:"Preview only — no order was sent or saved.",currency:"USD"},
- ar:{topbar:"شيء جميل لكل شخص ✦ الدفع عند الاستلام في لبنان",eyebrow:"اكتشف شيئاً تحبه",heroTitle:"اكتشافات جميلة.<br>أيام أجمل.",heroText:"اكتشف منتجات يومية ملوّنة وهدايا مميزة وأغراضاً عملية — كلها في مكان واحد.",shopNow:"اكتشف المجموعة ←",productsTitle:"اختر ما يعجبك",productsSubtitle:"مجموعة متنوعة من الأشياء التي تستحق الاكتشاف.",search:"ابحث عن المنتجات...",notice:"متجر تجريبي: المنتجات والأسعار المعروضة أمثلة فقط. تأكد من توفر المنتج وسعره النهائي وكلفة التوصيل قبل تأكيد أي طلب حقيقي.",cart:"السلة",cartTitle:"سلة التسوق",total:"المجموع الفرعي",checkoutTitle:"تفاصيل التوصيل",checkoutInfo:"هذه المعاينة لا ترسل الطلبات ولا تحفظ معلومات العملاء. سنربط نظام طلبات آمن في الخطوة التالية.",name:"الاسم الكامل",phone:"الهاتف / واتساب",area:"منطقة التوصيل",address:"العنوان بالتفصيل",placeOrder:"معاينة إتمام الطلب",privacy:"لا تدخل بيانات عملاء حقيقية في هذه المعاينة. صفحة الدفع مخصصة لاختبار التصميم فقط.",empty:"سلة التسوق فارغة. أضف شيئاً يعجبك!",remove:"حذف",footer:"اكتشافات صغيرة، فرحة كبيرة.",footerDemo:"واجهة متجر تجريبية",floatOne:"✨ اكتشافات جديدة",floatTwo:"💛 اخترناها لك",choose:"اختر المنطقة",added:"أُضيف إلى السلة",need:"أضف منتجاً أولاً.",form:"أدخل الاسم والهاتف والمنطقة والعنوان لمعاينة الطلب.",demo:"معاينة فقط — لم يتم إرسال الطلب أو حفظه.",currency:"USD"}
+ en:{topbar:"A little something for everyone ✦ Cash on delivery in Lebanon",eyebrow:"YOUR NEXT LITTLE OBSESSION",heroTitle:"Good finds.<br>Happy days.",heroText:"Discover colorful everyday favorites, thoughtful gifts and clever little things — all in one place.",shopNow:"Explore the collection →",productsTitle:"Find your favorites",productsSubtitle:"A little mix of things worth discovering.",search:"Search products...",notice:"Demo store: sample products and prices are placeholders. Confirm supplier availability, final price and delivery fee before accepting a real order.",cart:"Cart",cartTitle:"Your cart",total:"Subtotal",checkoutTitle:"Delivery details",checkoutInfo:"Checkout is currently in preview mode. Your order will not be submitted or saved yet.",name:"Full name",phone:"Phone / WhatsApp",area:"Delivery area",address:"Detailed address",placeOrder:"Preview checkout",privacy:"Please use test details only. This button does not place a real order or store your information.",empty:"Your cart is empty. Add something you love!",remove:"Remove",footer:"Everyday finds. Smart choices.",footerDemo:"Preview storefront",floatOne:"✨ New discoveries",floatTwo:"💛 Picked for you",choose:"Choose an area",added:"Added to cart",need:"Please add a product first.",form:"Enter your name, phone, delivery area and address to continue.",demo:"Preview only — no order was placed or saved.",currency:"USD"},
+ ar:{topbar:"شيء جميل لكل شخص ✦ الدفع عند الاستلام في لبنان",eyebrow:"اكتشف شيئاً تحبه",heroTitle:"اكتشافات جميلة.<br>أيام أجمل.",heroText:"اكتشف منتجات يومية ملوّنة وهدايا مميزة وأغراضاً عملية — كلها في مكان واحد.",shopNow:"اكتشف المجموعة ←",productsTitle:"اختر ما يعجبك",productsSubtitle:"مجموعة متنوعة من الأشياء التي تستحق الاكتشاف.",search:"ابحث عن المنتجات...",notice:"متجر تجريبي: المنتجات والأسعار المعروضة أمثلة فقط. تأكد من توفر المنتج وسعره النهائي وكلفة التوصيل قبل تأكيد أي طلب حقيقي.",cart:"السلة",cartTitle:"سلة التسوق",total:"المجموع الفرعي",checkoutTitle:"تفاصيل التوصيل",checkoutInfo:"إتمام الطلب في وضع المعاينة حالياً. لن يتم إرسال طلبك أو حفظه بعد.",name:"الاسم الكامل",phone:"الهاتف / واتساب",area:"منطقة التوصيل",address:"العنوان بالتفصيل",placeOrder:"معاينة إتمام الطلب",privacy:"استخدم بيانات تجريبية فقط. هذا الزر لا يرسل طلباً حقيقياً ولا يحفظ معلوماتك.",empty:"سلة التسوق فارغة. أضف شيئاً يعجبك!",remove:"حذف",footer:"اكتشافات صغيرة، فرحة كبيرة.",footerDemo:"واجهة متجر تجريبية",floatOne:"✨ اكتشافات جديدة",floatTwo:"💛 اخترناها لك",choose:"اختر المنطقة",added:"أُضيف إلى السلة",need:"أضف منتجاً أولاً.",form:"أدخل الاسم والهاتف ومنطقة التوصيل والعنوان للمتابعة.",demo:"معاينة فقط — لم يتم إرسال الطلب أو حفظه.",currency:"USD"}
 };
 let lang="en", selectedCat="All", cart={};
 const $=id=>document.getElementById(id);
@@ -94,14 +94,12 @@ function renderCats(){
  document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{selectedCat=b.dataset.cat;renderCats();renderProducts()});
 }
 
-
 function renderProducts(){
  const q=$("search").value.trim().toLowerCase();
  const list=productsData.filter(p=>(selectedCat==="All"||p.cat===selectedCat)&&(`${p.en.name} ${p.ar.name} ${p.en.desc} ${p.ar.desc} ${p.cat}`.toLowerCase().includes(q)));
  $("products").innerHTML=list.length?list.map(p=>`<article class="product"><div class="photo" style="background:${p.bg}">${p.image_url?`<img src="${p.image_url}" alt="${productText(p).name}" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:10px;">`:`<span>${p.emoji}</span>`}${p.badge?`<small>${p.badge}</small>`:""}</div><h3>${productText(p).name}</h3><p class="desc">${productText(p).desc}</p><div class="product-bottom"><span class="price">${money(p.price)}</span><button class="add" aria-label="Add ${productText(p).name}" data-add="${p.id}">+</button></div></article>`).join(""):`<div class="empty">No products found.</div>`;
  document.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{const id=+b.dataset.add;cart[id]=(cart[id]||0)+1;renderCart();toast(tr("added"))});
 }
-
 
 function renderCart(){
  const entries=Object.entries(cart).filter(([id,qty])=>qty>0);
@@ -134,9 +132,9 @@ $("placeOrder").onclick=()=>{
 };
 $("year").textContent=new Date().getFullYear();
 applyLanguage();
-  
+
 const SUPABASE_URL = "https://mjsaprouhtfrqandrnck.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_nHciMKhBrdSlVs3Z09CYBQ_VrinSh7V";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_nHciMKhBrSlVs3Z09CYBQ_VrinSh7V";
 
 async function loadSupabaseProducts() {
   try {
@@ -160,7 +158,7 @@ async function loadSupabaseProducts() {
       id: p.id,
       cat: p.category || "Other",
       emoji: "🛍️",
-image_url: p.image_url || "",
+      image_url: p.image_url || "",
       bg: "#f5edda",
       price: Number(p.price),
       badge: "",
