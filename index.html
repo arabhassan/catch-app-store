@@ -89,12 +89,14 @@ function renderCats(){
  document.querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{selectedCat=b.dataset.cat;renderCats();renderProducts()});
 }
 
+
 function renderProducts(){
  const q=$("search").value.trim().toLowerCase();
  const list=productsData.filter(p=>(selectedCat==="All"||p.cat===selectedCat)&&(`${p.en.name} ${p.ar.name} ${p.en.desc} ${p.ar.desc} ${p.cat}`.toLowerCase().includes(q)));
- $("products").innerHTML=list.length?list.map(p=>`<article class="product"><div class="photo" style="background:${p.bg}">${p.image_url?`<img src="${p.image_url}" alt="${productText(p).name}" style="width:100%;height:100%;object-fit:cover;">`:`<span>${p.emoji}</span>`}${p.badge?`<small>${p.badge}</small>`:""}</div><h3>${productText(p).name}</h3><p class="desc">${productText(p).desc}</p><div class="product-bottom"><span class="price">${money(p.price)}</span><button class="add" aria-label="Add ${productText(p).name}" data-add="${p.id}">+</button></div></article>`).join(""):`<div class="empty">No products found.</div>`;
+ $("products").innerHTML=list.length?list.map(p=>`<article class="product"><div class="photo" style="background:${p.bg}">${p.image_url?`<img src="${p.image_url}" alt="${productText(p).name}" style="width:100%;height:100%;object-fit:contain;">`:`<span>${p.emoji}</span>`}${p.badge?`<small>${p.badge}</small>`:""}</div><h3>${productText(p).name}</h3><p class="desc">${productText(p).desc}</p><div class="product-bottom"><span class="price">${money(p.price)}</span><button class="add" aria-label="Add ${productText(p).name}" data-add="${p.id}">+</button></div></article>`).join(""):`<div class="empty">No products found.</div>`;
  document.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{const id=+b.dataset.add;cart[id]=(cart[id]||0)+1;renderCart();toast(tr("added"))});
 }
+
 
 function renderCart(){
  const entries=Object.entries(cart).filter(([id,qty])=>qty>0);
